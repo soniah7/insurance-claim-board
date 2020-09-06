@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { reqClaimList } from "../../service/data-service";
 import { ClaimTable } from "../../components/claim-table";
+import { Header } from "../../components/header";
+import "./index.scss";
 
 export const Dashboard = () => {
   const [claimList, setClaimList] = useState([]);
@@ -14,6 +16,7 @@ export const Dashboard = () => {
     "Updated Time",
     "Next Best Action",
   ];
+  const headerName = "Insurance Claim Dashboard";
 
   useEffect(() => {
     async function fetchData() {
@@ -36,9 +39,9 @@ export const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      <div>Claim Dashboard</div>
+      <Header headerName={headerName} />
       {loadingStatus ? (
-        "Loading.."
+        <span className="dashboard__loading-bar">Loading..</span>
       ) : (
         <ClaimTable claimList={claimList} attributeList={attributeList} />
       )}

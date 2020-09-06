@@ -1,18 +1,21 @@
 import React from "react";
 import { ClaimRow } from "./claim-row";
+import "./index.scss";
 
 export const ClaimTable = (props) => {
   const { claimList, attributeList } = props;
   return (
-    <div className="claim-table">
-      <div className="claim-table__header">
+    <div className="table">
+      <div className="table__header">
         {attributeList.map((attribute) => (
           <span>{attribute}</span>
         ))}
       </div>
-      {claimList.map((claim) => (
-        <ClaimRow {...claim} />
-      ))}
+      <div className="table__content">
+        {claimList.map((claim) => (
+          <ClaimRow {...claim} />
+        ))}
+      </div>
     </div>
   );
 };
