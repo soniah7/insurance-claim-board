@@ -3,9 +3,9 @@
 ### Deployed version: https://insurance-claim-board.herokuapp.com/
 
 ### Instruction
-In the project directory, you can run:
+In the project directory, you can run:<br />
 `npm start`
-Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.<br />
 `npm test`
 Tests the app.
 
