@@ -11,7 +11,7 @@ Tests the app.
 
 ### Achievement of this program
 - Displayed a list of claim records
-- Used mocked data and resovled a simulated promise with 10% chance of failure of request
+- Used mocked data and resovled a simulated promise with 10% chance of request failure
 - Added a loading bar functionality
 - Implemented test suites with a high code coverage
 - Generated next best action by calculated current time minus updated time of the claim minus its sla (since mock data is used here, we changed current time to be a specific date and time for a better presentation of different next best actions). With calculated result of time length, we could find out the next best actions for each claim by refering to the JSON defined in utils/action-to-hours-mapping.js
