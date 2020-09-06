@@ -30,5 +30,5 @@ Tests the app.
 - Performance. In the situation where we have to handle a large amount of records, lazy loading could be used. Pagination is also necessary to avoid requesting too much unecessary information at once. (It is also a necessary thing to have regarding UI/UX)
 
 
-# Last but not least..
+### Last but not least..
 Thank you so much for reviewing my code. Any feedback you give me could greatly help. I look forward to hearing from you!
