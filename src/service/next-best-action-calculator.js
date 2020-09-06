@@ -1,12 +1,12 @@
 import NextBestActionMapping from "./next-best-action-mapping.json";
 import database from "./database.json";
 
-export const calculateNextBestAction = (claim) => {
+export const calculateNextBestAction = (claimCreatedTime, claimStatus) => {
   // assume current date and time is 2020-08-16 00:00:00 to show different next best actions in the given dataset
   const exceedingHours =
     (new Date("2020-08-16T00:00:00.000Z") -
-      new Date(claim.createdAt) -
-      getSLA(claim.status)) /
+      new Date(claimCreatedTime) -
+      getSLA(claimStatus)) /
     (1000 * 60 * 60);
 
   // NextBestActionMapping contains a mapping from next best action to exceeding hours.
@@ -20,9 +20,9 @@ export const calculateNextBestAction = (claim) => {
   return NextBestAction;
 };
 
-const getSLA = (status) => {
+const getSLA = (claimStatus) => {
   database.slas.forEach((sla) => {
-    if (sla.status === status) return sla.hours;
+    if (sla.status === claimStatus) return sla.hours;
   });
   return 0;
 };

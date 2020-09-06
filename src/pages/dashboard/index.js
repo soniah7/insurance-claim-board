@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { reqClaimList } from "../../service/data-service";
-import { displayDateAndTime } from "../../utils/data-formatter";
-import { calculateNextBestAction } from "../../service/next-best-action-calculator";
+import { ClaimTable } from "../../components/claim-table";
 
 export const Dashboard = () => {
   const [claimList, setClaimList] = useState([]);
+  const [loadingStatus, setLoadingStatus] = useState(false);
   const attributeList = [
     "Id",
     "Status",
@@ -14,39 +14,34 @@ export const Dashboard = () => {
     "Updated Time",
     "Next Best Action",
   ];
+
   useEffect(() => {
     async function fetchData() {
       let data = [];
       try {
         data = await reqClaimList();
-        setClaimList(data);
+        //to make loading functionality more obvious at development stage
+        setTimeout(() => {
+          setClaimList(data);
+          setLoadingStatus(false);
+        }, 300);
       } catch (e) {
         alert(e);
+        setLoadingStatus(false);
       }
     }
+    setLoadingStatus(true);
     fetchData();
-  });
+  }, []);
 
   return (
     <div className="dashboard">
       <div>Claim Dashboard</div>
-      <div className="dashboard__table">
-        <div className="dashboard__table--header">
-          {attributeList.map((attribute) => (
-            <span>{attribute}</span>
-          ))}
-        </div>
-        {claimList.map((claim) => (
-          <div className="dashboard__table--record">
-            <span>{claim.id}</span>
-            <span>{claim.status}</span>
-            <span>{claim.assignedTo}</span>
-            <span>{displayDateAndTime(claim.createdAt)}</span>
-            <span>{displayDateAndTime(claim.updatedAt)}</span>
-            <span>{calculateNextBestAction(claim)}</span>
-          </div>
-        ))}
-      </div>
+      {loadingStatus ? (
+        "Loading.."
+      ) : (
+        <ClaimTable claimList={claimList} attributeList={attributeList} />
+      )}
     </div>
   );
 };
