@@ -5,7 +5,15 @@ import { calculateNextBestAction } from "../../service/next-best-action-calculat
 
 export const Dashboard = () => {
   const [claimList, setClaimList] = useState([]);
-
+  const attributeList = [
+    "Id",
+    "Status",
+    "Assignee",
+    "Claimant",
+    "Created Time",
+    "Updated Time",
+    "Next Best Action",
+  ];
   useEffect(() => {
     async function fetchData() {
       let data = [];
@@ -24,16 +32,12 @@ export const Dashboard = () => {
       <div>Claim Dashboard</div>
       <div className="dashboard__table">
         <div className="dashboard__table--header">
-          <span>Id</span>
-          <span>Status</span>
-          <span>Assignee</span>
-          <span>Claimant</span>
-          <span>Created Time</span>
-          <span>Updated Time</span>
-          <span>Next Best Action</span>
+          {attributeList.map((attribute) => (
+            <span>{attribute}</span>
+          ))}
         </div>
         {claimList.map((claim) => (
-          <div>
+          <div className="dashboard__table--record">
             <span>{claim.id}</span>
             <span>{claim.status}</span>
             <span>{claim.assignedTo}</span>
