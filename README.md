@@ -1,6 +1,8 @@
-## Deployed version: https://insurance-claim-board.herokuapp.com/
+# CODE TEST BY SONIA
 
-### instruction
+### Deployed version: https://insurance-claim-board.herokuapp.com/
+
+### Instruction
 In the project directory, you can run:
 `npm start`
 Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -26,3 +28,7 @@ Tests the app.
 - Websocket. This project has only involved frontend and simulate backend api by resovles a promise with JSON mock data. However in realworld situation, Websocket or XHR (instead of HTTP request) could be used for real-time data transfer, given the context of building such a real-time insurance claim dashboard
 - Searching records by claim assessor names. Given the target users of this dashboard are claim assessors, this feature is worthy to implement in future. Context API could be used to pair up with React Hooks to handle state mangement issue between components of search bar and claim records.
 - Performance. In the situation where we have to handle a large amount of records, lazy loading could be used. Pagination is also necessary to avoid requesting too much unecessary information at once. (It is also a necessary thing to have regarding UI/UX)
+
+
+# Last but not least..
+Thank you so much for reviewing my code. Any feedback you give me could greatly help. I look forward to hearing from you!
