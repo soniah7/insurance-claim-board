@@ -1,5 +1,10 @@
 import React from "react";
+import "./index.scss";
 
-export const Header = () => {
-  return <div>Insurance Claim System</div>;
+export const Header = ({ headerName }) => {
+  return (
+    <div className="header">
+      <header>{headerName}</header>
+    </div>
+  );
 };

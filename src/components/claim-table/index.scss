@@ -1,0 +1,29 @@
+.table {
+  padding: 10px;
+
+  &__header {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 10px;
+    background-color: #429dff;
+    color: white;
+    font-weight: 700;
+    span {
+      width: 100%;
+    }
+  }
+  &__content {
+    padding: 5px 10px;
+    background-color: #ebf5ff83;
+
+    &--row {
+      padding: 5px 0px;
+
+      display: flex;
+      justify-content: space-around;
+      span {
+        width: 100%;
+      }
+    }
+  }
+}
