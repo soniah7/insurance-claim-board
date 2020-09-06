@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { reqClaimList } from "../../api/index";
+import { reqClaimList } from "../../service/data-service";
 import { displayDateAndTime } from "../../utils/data-formatter";
+import { calculateNextBestAction } from "../../service/next-best-action-calculator";
 
 export const Dashboard = () => {
   const [claimList, setClaimList] = useState([]);
@@ -10,7 +11,7 @@ export const Dashboard = () => {
       let data = [];
       try {
         data = await reqClaimList();
-        setClaimList(data.claims);
+        setClaimList(data);
       } catch (e) {
         alert(e);
       }
@@ -38,6 +39,7 @@ export const Dashboard = () => {
             <span>{claim.assignedTo}</span>
             <span>{displayDateAndTime(claim.createdAt)}</span>
             <span>{displayDateAndTime(claim.updatedAt)}</span>
+            <span>{calculateNextBestAction(claim)}</span>
           </div>
         ))}
       </div>
