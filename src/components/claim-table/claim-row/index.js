@@ -1,6 +1,6 @@
 import React from "react";
 import { displayDateAndTime } from "../../../utils/data-formatter";
-import { calculateNextBestAction } from "../../../service/next-best-action-calculator";
+import { generateNextBestAction } from "../../../service/next-best-action-generator";
 
 export const ClaimRow = ({
   id,
@@ -18,7 +18,7 @@ export const ClaimRow = ({
       <span>{claimant}</span>
       <span>{displayDateAndTime(createdAt)}</span>
       <span>{displayDateAndTime(updatedAt)}</span>
-      <span>{calculateNextBestAction(createdAt, status)}</span>
+      <span>{generateNextBestAction(createdAt, status)}</span>
     </div>
   );
 };
